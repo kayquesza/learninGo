@@ -7,40 +7,40 @@ import (
 )
 
 func main() {
-	canal := multiplexar(escrever("Hello, World!"), escrever("Goodbye, World!"))
+	channel := multiplex(write("Hello, World!"), write("Goodbye, World!"))
 
 	for i := 0; i < 10; i++ {
-		fmt.Println(<-canal) // Recebe mensagens do canal multiplexado
+		fmt.Println(<-channel) // Receives messages from the multiplexed channel
 	}
 }
 
-func multiplexar(canalDeEntrada1, canalDeEntrada2 <-chan string) <-chan string {
-	canalDeSaida := make(chan string)
+func multiplex(inputChannel1, inputChannel2 <-chan string) <-chan string {
+	outputChannel := make(chan string)
 
 	go func() {
 		for {
 			select {
-			case message := <-canalDeEntrada1:
-				canalDeSaida <- fmt.Sprintf("Canal 1: %s", message)
-			case message := <-canalDeEntrada2:
-				canalDeSaida <- fmt.Sprintf("Canal 2: %s", message)
+			case message := <-inputChannel1:
+				outputChannel <- fmt.Sprintf("Channel 1: %s", message)
+			case message := <-inputChannel2:
+				outputChannel <- fmt.Sprintf("Channel 2: %s", message)
 			}
 		}
 	}()
 
-	return canalDeSaida
+	return outputChannel
 }
 
-func escrever(text string) <-chan string {
-	canal := make(chan string) // Cria um canal para enviar strings
+func write(text string) <-chan string {
+	channel := make(chan string) // Creates a channel to send strings
 
 	go func() {
 		for {
-			canal <- fmt.Sprintf("Valor recebido: %s", text)              // Envia o texto formatado para o canal
-			time.Sleep(time.Millisecond * time.Duration(rand.Intn(2000))) // Simula um atraso aleatório
-			// O atraso simula a variabilidade na produção de mensagens
+			channel <- fmt.Sprintf("Received value: %s", text)              // Sends the formatted text to the channel
+			time.Sleep(time.Millisecond * time.Duration(rand.Intn(2000))) // Simulates a random delay
+			// The delay simulates variability in message production
 		}
 	}()
 
-	return canal
+	return channel
 }

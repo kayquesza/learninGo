@@ -6,23 +6,23 @@ import (
 )
 
 func TestArea(t *testing.T) {
-	t.Run("Retangle", func(t *testing.T) {
-		r := Retangle{10, 20}
-		areaEsperada := float64(200)
-		areaRecebida := r.Area()
+	t.Run("Rectangle", func(t *testing.T) {
+		r := Rectangle{10, 20}
+		expectedArea := float64(200)
+		receivedArea := r.Area()
 
-		if areaEsperada != areaRecebida {
-			t.Fatalf("Área esperada: %0.2f, Área recebida: %0.2f", areaEsperada, areaRecebida)
+		if expectedArea != receivedArea {
+			t.Fatalf("Expected area: %0.2f, Received area: %0.2f", expectedArea, receivedArea)
 		}
 
 	})
 
 	t.Run("Circle", func(t *testing.T) {
 		c := Circle{10}
-		areaEsperada := float64(math.Pi * 10 * 10) // Usando math.Pi para maior precisão
-		areaRecebida := c.Area()
-		if areaEsperada != areaRecebida {
-			t.Fatalf("Área esperada: %0.2f, Área recebida: %0.2f", areaEsperada, areaRecebida)
+		expectedArea := float64(math.Pi * 10 * 10) // Using math.Pi for greater precision
+		receivedArea := c.Area()
+		if expectedArea != receivedArea {
+			t.Fatalf("Expected area: %0.2f, Received area: %0.2f", expectedArea, receivedArea)
 		}
 	})
 }

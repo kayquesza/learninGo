@@ -7,9 +7,9 @@ type user struct {
 	age  int
 }
 
-// Método
+// Method
 func (u user) save() {
-	fmt.Printf("Salvando usuário: %s, %d\n", u.name, u.age)
+	fmt.Printf("Saving user: %s, %d\n", u.name, u.age)
 }
 
 func (u user) legalAge() bool {
@@ -18,7 +18,7 @@ func (u user) legalAge() bool {
 
 func (u user) happyBirthday() {
 	u.age++
-	fmt.Printf("Feliz aniversário, %s! Agora você tem %d anos.\n", u.name, u.age)
+	fmt.Printf("Happy birthday, %s! Now you are %d years old.\n", u.name, u.age)
 }
 
 func main() {
@@ -34,7 +34,7 @@ func main() {
 	}
 	user2.save()
 	user2.legalAge()
-	fmt.Println("Usuário 2 é maior de idade:", user2.legalAge())
+	fmt.Println("User 2 is of legal age:", user2.legalAge())
 
 	user1.happyBirthday()
 

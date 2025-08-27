@@ -2,9 +2,9 @@ package auxiliar
 
 import "fmt"
 
-// "escrever2" é uma função que escreve uma mensagem no console.
-func escrever2() {
-	fmt.Println("Escrevendo pela função 2.")
+// "write2" is a function that writes a message to the console.
+func write2() {
+	fmt.Println("Writing by function 2.")
 
 
 }

@@ -2,23 +2,23 @@ package formas
 
 import "math"
 
-type Retangle struct {
+type Rectangle struct {
 	width  float64
 	height float64
 }
 
 type Circle struct {
-	raio float64
+	radius float64
 }
 
-func (r Retangle) Area() float64 {
-	return r.width * r.height // Método que calcula a área do retângulo
+func (r Rectangle) Area() float64 {
+	return r.width * r.height // Method that calculates the area of the rectangle
 }
 
-type Forma interface {
-	Area() float64 // Método que retorna a área da forma (o retorno é um float64)
+type Shape interface {
+	Area() float64 // Method that returns the area of the shape (return is a float64)
 }
 
 func (c Circle) Area() float64 {
-	return math.Pi * c.raio * c.raio // Método que calcula a área do Círculo
+	return math.Pi * c.radius * c.radius // Method that calculates the area of the Circle
 }

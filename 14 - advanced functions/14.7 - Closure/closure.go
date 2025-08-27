@@ -4,16 +4,16 @@ import "fmt"
 
 // closure demonstrates the concept of closures in Go.
 func closure() func() {
-	text := "Dentro da função: Closure"
+	text := "Inside the function: Closure"
 
-	funcao := func() {
+	function := func() {
 		fmt.Println(text)
 	}
-	return funcao
+	return function
 }
 
 func main() {
-	text := "Dentro da função: Main"
+	text := "Inside the function: Main"
 	fmt.Println(text)
 
 	newFunction := closure() 

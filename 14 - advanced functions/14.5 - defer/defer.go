@@ -10,10 +10,10 @@ func function2() {
 	fmt.Println("Function 2 executed")
 }
 
-func studentAproved(number1, number2 float64) bool {
-	media := (number1 + number2) / 2
+func studentApproved(number1, number2 float64) bool {
+	average := (number1 + number2) / 2
 
-	if media >= 6 {
+	if average >= 6 {
 		return true
 	}
 	return false
@@ -23,6 +23,6 @@ func main() {
 	defer function1()
 	function2()
 
-	fmt.Println("Student approved:", studentAproved(7, 8))
-	fmt.Println("Student approved:", studentAproved(5, 4))
+	fmt.Println("Student approved:", studentApproved(7, 8))
+	fmt.Println("Student approved:", studentApproved(5, 4))
 }

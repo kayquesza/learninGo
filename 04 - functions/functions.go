@@ -2,36 +2,36 @@ package main
 
 import "fmt"
 
-// Função "Somar" recebe 2 parâmetros e seus tipos (n1 int8, n2 int8),
-// e retorna um número (int8)
-func somar(n1 int8, n2 int8) int8 {
+// Function "Add" receives 2 parameters and their types (n1 int8, n2 int8),
+// and returns a number (int8)
+func add(n1 int8, n2 int8) int8 {
 	return n1 + n2
 }
 
-func calculosMatematicos(n1, n2 int8) (int16, int8) {
-	soma := n1 + n2
-	subtracao := n1 - n2
-	return int16(soma), subtracao
+func mathematicalCalculations(n1, n2 int8) (int16, int8) {
+	sum := n1 + n2
+	subtraction := n1 - n2
+	return int16(sum), subtraction
 }
 
 func main() {
-	soma := somar(20, 20)
-	fmt.Printf("A soma dos números é: %d.", soma)
+	sum := add(20, 20)
+	fmt.Printf("The sum of the numbers is: %d.", sum)
 
 	funcf := func(txt string) string {
 		fmt.Println(txt)
 		return txt
 	}
 
-	funcf("Texto Improvisado")
+	funcf("Improvise Text")
 
-	resultadoSoma, resultadoSubstracao := calculosMatematicos(10, 20)
-	fmt.Println(resultadoSoma, resultadoSubstracao)
+	resultSum, resultSubtraction := mathematicalCalculations(10, 20)
+	fmt.Println(resultSum, resultSubtraction)
 
-	resultadoSoma2, _ := calculosMatematicos(15, 12)
-	fmt.Println(resultadoSoma2)
+	resultSum2, _ := mathematicalCalculations(15, 12)
+	fmt.Println(resultSum2)
 
-	_, resultadoSoma3 := calculosMatematicos(15, 12)
-	fmt.Println(resultadoSoma3)
+	_, resultSum3 := mathematicalCalculations(15, 12)
+	fmt.Println(resultSum3)
 
 }

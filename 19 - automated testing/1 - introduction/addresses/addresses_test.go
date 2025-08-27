@@ -1,19 +1,19 @@
-// Teste de Unidade
+// Unit Test
 
 package enderecos
 
 import "testing"
 
-type cenarioDeTest struct {
-	enderecoInserido string
-	retornoEsperado  string
+type testScenario struct {
+	insertedAddress string
+	expectedReturn  string
 }
 
-func TestTipoDeEndereco(t *testing.T) {
+func TestAddressType(t *testing.T) {
 
-	// Slice de cenários de teste
-	// Cada cenário contém um endereço e o retorno esperado
-	cenariosDeTest := []cenarioDeTest{
+	// Slice of test scenarios
+	// Each scenario contains an address and the expected return
+	testScenarios := []testScenario{
 		{"Rua ABC", "Rua"},
 		{"Avenida Paulista", "Avenida"},
 		{"Estrada do Sol", "Estrada"},
@@ -26,12 +26,12 @@ func TestTipoDeEndereco(t *testing.T) {
 		{"", "Desconhecido"},
 	}
 
-	for _, cenario := range cenariosDeTest {
-		tipoDeEnderecoRecebido := TipoDeEndereco(cenario.enderecoInserido)
-		if tipoDeEnderecoRecebido != cenario.retornoEsperado {
-			t.Errorf("O tipo recebido é diferente do esperado.\nEsperado: %s\nRecebido: %s", cenario.retornoEsperado, tipoDeEnderecoRecebido)
+	for _, scenario := range testScenarios {
+		receivedAddressType := TipoDeEndereco(scenario.insertedAddress)
+		if receivedAddressType != scenario.expectedReturn {
+			t.Errorf("The received type is different from expected.\nExpected: %s\nReceived: %s", scenario.expectedReturn, receivedAddressType)
 		} else {
-			t.Logf("Teste OK! Endereço: %s, Tipo: %s", cenario.enderecoInserido, tipoDeEnderecoRecebido)
+			t.Logf("Test OK! Address: %s, Type: %s", scenario.insertedAddress, receivedAddressType)
 		}
 	}
 

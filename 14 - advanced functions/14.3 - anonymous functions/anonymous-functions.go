@@ -5,17 +5,17 @@ import "fmt"
 func main() {
 
 	func() {
-		fmt.Println("Função anônima executada!")
+		fmt.Println("Anonymous function executed!")
 	}()
 
 	func(text string) {
 		fmt.Println(text)
-	}("Função anônima com parâmetro!")
+	}("Anonymous function with parameter!")
 
-	// Função anônima com retorno armazenada
-	retorno := func(text string) string {
-		return fmt.Sprintf("Recebido - %s", text)
-	}("Função anônima com parâmetro!")
-	fmt.Println(retorno)
+	// Anonymous function with stored return
+	returnValue := func(text string) string {
+		return fmt.Sprintf("Received - %s", text)
+	}("Anonymous function with parameter!")
+	fmt.Println(returnValue)
 
 }

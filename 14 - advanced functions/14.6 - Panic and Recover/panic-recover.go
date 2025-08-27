@@ -2,28 +2,28 @@ package main
 
 import "fmt"
 
-func recuperarExecucao() {
-	// O "r" armazena o resultado do "recover"
+func recoverExecution() {
+	// The "r" stores the result of "recover"
 	if r := recover(); r != nil {
-		fmt.Println("Recuperando de um panic:", r)
+		fmt.Println("Recovering from panic:", r)
 	}
 }
 
-func studentIsAproved(n1, n2 float64) bool {
-	defer recuperarExecucao() // Chama a função de recuperação quando ocorrer um panic
-	media := (n1 + n2) / 2
+func studentIsApproved(n1, n2 float64) bool {
+	defer recoverExecution() // Calls the recovery function when panic occurs
+	average := (n1 + n2) / 2
 
-	if media > 7 {
+	if average > 7 {
 		return true
-	} else if media < 7 {
+	} else if average < 7 {
 		return false
 	}
 
-	// O "panic" interrumpe a execução do programa e exibe uma mensagem de erro
-	panic("A média não pode ser calculada")
+	// "panic" interrupts program execution and displays an error message
+	panic("The average cannot be calculated")
 }
 
 func main() {
-	fmt.Printf("O aluno está aprovado? %t\n", studentIsAproved(7, 7))
+	fmt.Printf("Is the student approved? %t\n", studentIsApproved(7, 7))
 	fmt.Println()
 }

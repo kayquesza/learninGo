@@ -5,30 +5,30 @@ import (
 	"time"
 )
 
-func escrever(text string, canal chan string) {
+func write(text string, channel chan string) {
 	for i := 0; i < 5; i++ {
-		canal <- text // Envia o texto para o canal
+		channel <- text // Sends text to the channel
 		time.Sleep(time.Second)
 	}
 
-	close(canal) // Fecha o canal após enviar todas as mensagens
+	close(channel) // Closes the channel after sending all messages
 }
 
 func main() {
-	canal := make(chan string)          // "Make" é a palavra-chave para criar um canal
-	go escrever("Hello, World!", canal) // Inicia a goroutine para escrever no canal
+	channel := make(chan string)          // "Make" is the keyword to create a channel
+	go write("Hello, World!", channel) // Starts the goroutine to write to the channel
 
 	// for {
-	//		mensagem, aberto := <-canal // Esperando receber o primeiro valor do canal
-	//		if !aberto {
-	//			break // Se o canal estiver fechado, sai do loop
+	//		message, open := <-channel // Waiting to receive the first value from the channel
+	//		if !open {
+	//			break // If the channel is closed, exit the loop
 	//		}
-	//		fmt.Println(mensagem) // Imprime a mensagem recebida
+	//		fmt.Println(message) // Prints the received message
 	//	}
 
-	for mensagem := range canal {
-		fmt.Println(mensagem) // Imprime as mensagens restantes do canal
+	for message := range channel {
+		fmt.Println(message) // Prints the remaining messages from the channel
 	}
 
-	fmt.Println("Fim do programa")
+	fmt.Println("End of program")
 }

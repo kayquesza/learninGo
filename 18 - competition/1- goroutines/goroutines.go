@@ -6,11 +6,11 @@ import (
 )
 
 func main() {
-	go escrever("Hello, World!") // goroutine 
-	escrever("Go is awesome!")
+	go write("Hello, World!") // goroutine 
+	write("Go is awesome!")
 }
 
-func escrever(text string) {
+func write(text string) {
 	for {
 		fmt.Println(text)
 		time.Sleep(time.Second)

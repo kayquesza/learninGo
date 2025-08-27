@@ -2,21 +2,21 @@ package main
 
 import "fmt"
 
-func generica(interf interface{}) {
-	fmt.Println(interf) // Função genérica que aceita qualquer tipo de dado
+func generic(interf interface{}) {
+	fmt.Println(interf) // Generic function that accepts any type of data
 }
 
 func main() {
-	generica("Hello, World!") // Passando uma string
-	generica(42)              // Passando um inteiro
-	generica(3.14)            // Passando um float
-	generica(true)            // Passando um booleano
+	generic("Hello, World!") // Passing a string
+	generic(42)              // Passing an integer
+	generic(3.14)            // Passing a float
+	generic(true)            // Passing a boolean
 
-	mapa := map[interface{}]interface{}{
+	myMap := map[interface{}]interface{}{
 		1:             "String",
 		float32(1000): true,
 		"String":      "String",
 	}
 
-	fmt.Println(mapa) // Exibindo o mapa com chaves e valores de tipos variados
+	fmt.Println(myMap) // Displaying the map with keys and values of varied types
 }

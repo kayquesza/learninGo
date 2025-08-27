@@ -8,22 +8,22 @@ import (
 
 func main() {
 	var waitGroup sync.WaitGroup
-	waitGroup.Add(2) // Adiciona duas goroutines à espera
+	waitGroup.Add(2) // Adds two goroutines to wait
 
 	go func() {
-		escrever("Hello, World!")
-		waitGroup.Done() // -1 no waitGroup.Add(2)
+		write("Hello, World!")
+		waitGroup.Done() // -1 from waitGroup.Add(2)
 	}()
 
 	go func() {
-		escrever("Go is awesome!")
-		waitGroup.Done() // -1 no waitGroup.Add(2)
+		write("Go is awesome!")
+		waitGroup.Done() // -1 from waitGroup.Add(2)
 	}()
 
-	waitGroup.Wait() // Aguarda até que todas as goroutines terminem
+	waitGroup.Wait() // Waits until all goroutines finish
 }
 
-func escrever(text string) {
+func write(text string) {
 	for i := 0; i < 5; i++ {
 		fmt.Println(text)
 		time.Sleep(time.Second)

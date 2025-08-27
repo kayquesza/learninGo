@@ -2,27 +2,27 @@ package enderecos
 
 import "strings"
 
-// TipoEndereco recebe uma string representando um endereço e retorna o tipo do endereço
-// (rua, avenida, estrada, rodovia) ou "desconhecido"
+// AddressType receives a string representing an address and returns the address type
+// (street, avenue, road, highway) or "unknown"
 func TipoDeEndereco(endereco string) string {
-	tiposValidos := []string{"rua", "avenida", "estrada", "rodovia"}
+	validTypes := []string{"rua", "avenida", "estrada", "rodovia"}
 
-	enderecoMinusculo := strings.ToLower(endereco)
-	// "ToLower" converte a string para minúsculas
-	primeiraPalavraEndereco := strings.Split(enderecoMinusculo, " ")[0]
-	// "Split" fará um slice de separações conforme o espaço em branco
-	// Exemplo: "Rua das Flores" -> ["Rua", "das", "Flores"]
-	// Retorna o indice [0] que é o primeiro elemento do slice ("Rua")
+	lowercaseAddress := strings.ToLower(endereco)
+	// "ToLower" converts the string to lowercase
+	firstWordAddress := strings.Split(lowercaseAddress, " ")[0]
+	// "Split" will create a slice of separations based on whitespace
+	// Example: "Rua das Flores" -> ["Rua", "das", "Flores"]
+	// Returns index [0] which is the first element of the slice ("Rua")
 
-	enderecoValido := false
-	for _, tipo := range tiposValidos {
-		if tipo == primeiraPalavraEndereco {
-			enderecoValido = true
+	validAddress := false
+	for _, tipo := range validTypes {
+		if tipo == firstWordAddress {
+			validAddress = true
 		}
 	}
 
-	if enderecoValido {
-		return strings.Title(primeiraPalavraEndereco)
+	if validAddress {
+		return strings.Title(firstWordAddress)
 	}
 
 	return "Desconhecido"
